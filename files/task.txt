@@ -1,0 +1,33 @@
+In this homework, you are expected to implement a “Car Rental Simulation” in Java.
+A car rental system uses waiting lists for both customers and cars to rent cars. According to
+the rental policy, when a possible match between the customer and the car is found, the
+customer must be contacted and decide whether to accept the car. If the applicant does not
+accept, he or she is placed back at the beginning of the waiting list for the next car, and must
+wait again. In this system, cars are rented according to their quality rating instead of their
+features. Each customer has a quality threshold. Assume that once accepted, each car will be
+occupied for a random number of days between 1 and 5.
+● Assume k customers apply for rent. Each customer has a randomly generated quality
+threshold (a random double between 1 and 3), and an ID number (or String) to keep
+track of.
+● Create a list of N cars. Each car should store its ID number (or String) and two pieces
+of information: its quality score (a random double between 1 and 3), and how many
+days are left in its occupancy (0 means it is available and ready to be rented).
+Get N and k from the user via command line arguments.
+● The renting process should dequeue a car then dequeue a customer (or visa versa),
+and check if the customer “accepts” the renting of that car (is the car’s quality value
+above the customer’s threshold?). If the customer accepts, set the car to rent for a
+random period of between 1 and 5 days and delete the customer. If the customer
+rejects the car, enqueue the customer, dequeue the next customer, and repeat.
+● If all customers reject a car, move on to the next car. This means that even if
+customers are on the waiting list, there may still be unrented cars. The rejected car
+must be inserted into the end of the car queue.
+● The renting process repeats until there are no available cars or all waiting customers
+have seen all cars. Once either of these occurs, move to the next day.
+● At the end of each day, decrement the number of days remaining for each rented car,
+and run the renting process for each available car. If a car becomes available (if
+occupancy becomes 0) for rent, must be inserted beginning of the car queue.
+● Each time a customer is put back on the waiting list, multiply his or her threshold by
+0.9. This will simulate the customer growing desperation.
+● Stop the simulation when all customers rent a car.
+Output statistics after each day. Display the available cars that day, and the number of cars
+newly rented
